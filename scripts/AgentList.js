@@ -26,8 +26,8 @@ import { getBusinesses } from "./database.js"
 // }
 
 
+const businesses = getBusinesses()
 export const agentNames = () => {
-    const businesses = getBusinesses()
 
     const agentHTMLRepresentations = businesses.map(business => (`<div class="business_name">${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast} </div><section class="business">
             <div class="business__address">${business.companyName}</h2>
@@ -49,5 +49,31 @@ return finalHTML
 
 }
 
-// let agents = agentNames()
-// console.log(agents)
+
+document
+    .querySelector("#content")
+        .addEventListener(
+            "keypress",
+            (keyPressEvent) => {
+                const companySearchResultArticle = document.querySelector(".foundBusinesses")
+
+                /*
+                    When the user presses 'Enter', find the matching business.*/
+                if (keyPressEvent.charCode === 13) {
+
+                    for (const business of businesses) {
+                        if (business.purchasingAgent.nameFirst.includes(keyPressEvent.target.value) || business.purchasingAgent.nameLast.includes(keyPressEvent.target.value)) {
+                            
+                            companySearchResultArticle.innerHTML += `<section class="business">
+                            <h2 class="business_name">${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}</h2>
+                            <div class="business__address">${business.phoneWork}</div>
+                                </section>
+                                    <hr></hr>` 
+
+                                    return matchingBusiness
+                        }
+                    }
+                }
+             }
+        );
+
