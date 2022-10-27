@@ -1,0 +1,15 @@
+h1, h2 {
+    font-size: 30px
+}
+
+.business {
+    font-family: serif;
+}
+
+.business_name {
+    font-size: 24px;
+}
+
+.address {
+    font-size: 16px;
+}
