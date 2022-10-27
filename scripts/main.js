@@ -9,7 +9,9 @@ const renderHTML = () => {
   contentTarget.innerHTML = `
   <input type="text" placeholder="Enter business name..." id="companySearch" />
 
-  <article class="foundBusinesses"></article>
+  <article class="foundBusinesses">
+  
+  </article>
 
   <article class="businesses">
       <h2>All Businesses</h2>
